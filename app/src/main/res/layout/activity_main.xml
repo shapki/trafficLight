@@ -4,15 +4,224 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#064919"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/roadVertical"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        android:background="#808080"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <View
+            android:id="@+id/leftSolidLine"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="5dp"
+            android:background="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <View
+            android:id="@+id/rightSolidLine"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="5dp"
+            android:background="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <View
+            android:id="@+id/zebra"
+            android:layout_width="132dp"
+            android:layout_height="40dp"
+            android:background="@drawable/zebra"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/dashLineTop"
+            android:layout_width="4dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:background="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@id/zebra"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <View
+            android:id="@+id/leftTopStopLine"
+            android:layout_width="65dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="15dp"
+            android:background="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@id/zebra"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/dashLineBottom"
+            android:layout_width="4dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/zebra"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <View
+            android:id="@+id/rightBottomStopLine"
+            android:layout_width="65dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="76dp"
+            android:layout_marginTop="15dp"
+            android:background="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/zebra"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/carTrafficLightTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="#000000"
+        android:orientation="vertical"
+        android:padding="4dp"
+        android:rotation="180"
+        app:layout_constraintBottom_toTopOf="@+id/zebraTrafficLightLeft"
+        app:layout_constraintEnd_toStartOf="@+id/roadVertical">
+
+        <View
+            android:id="@+id/redCarTop"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="2dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#0ed145" />
+
+        <View
+            android:id="@+id/yellowCarTop"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="2dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#fff200" />
+
+        <View
+            android:id="@+id/greenCarTop"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="2dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#FF0000" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/carTrafficLightBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#000000"
+        android:orientation="vertical"
+        android:padding="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/zebraTrafficLightRight"
+        app:layout_constraintStart_toEndOf="@+id/roadVertical">
+
+        <View
+            android:id="@+id/redCarBottom"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="2dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#FF0000" />
+
+        <View
+            android:id="@+id/yellowCarBottom"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="2dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#fff200" />
+
+        <View
+            android:id="@+id/greenCarBottom"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="2dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#0ed145" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/zebraTrafficLightLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:background="#000000"
+        android:orientation="vertical"
+        android:padding="4dp"
+        android:rotation="270"
+        app:layout_constraintBottom_toBottomOf="@+id/roadVertical"
+        app:layout_constraintEnd_toStartOf="@+id/roadVertical"
+        app:layout_constraintTop_toTopOf="@+id/roadVertical">
+
+        <View
+            android:id="@+id/redZebraLeft"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="2dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#FF0000" />
+
+        <View
+            android:id="@+id/greenZebraLeft"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="2dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#0ed145" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/zebraTrafficLightRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="4dp"
+        android:background="#000000"
+        android:orientation="vertical"
+        android:padding="4dp"
+        android:rotation="90"
+        app:layout_constraintBottom_toBottomOf="@+id/roadVertical"
+        app:layout_constraintStart_toEndOf="@+id/roadVertical"
+        app:layout_constraintTop_toTopOf="@+id/roadVertical">
+
+        <View
+            android:id="@+id/redZebraRight"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="2dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#FF0000" />
+
+        <View
+            android:id="@+id/greenZebraRight"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="2dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#0ed145" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
